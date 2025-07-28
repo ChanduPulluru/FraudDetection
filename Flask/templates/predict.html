@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Fraud</title>
+  <style>
+    body {
+     font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+		background-image:linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("fraud.jpg");
+		background-size: 100% 100%;  /* full width and full height */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;               /* fill the viewport height */
+    background-attachment: fixed;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 15px 30px;
+    }
+
+    .navbar h2 {
+      color: navyblue;
+      margin: 0;
+	font-weight: bold
+    }
+
+    .navbar a {
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .form-container {
+      width: 90%;
+      margin: 40px 50px;
+      padding: 30px;
+	background-image:url("fraud.jpg");
+	background-size:cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h1 {
+      text-align: center;
+      color: #003366;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    input {
+      width: 40%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    .predict-btn {
+      width: 20%;
+      margin-top: 30px;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+-
+    .predict-btn:hover {
+      background-color: #005fa3;
+    }
+    .btnalign{
+	text-align:right;
+	font-weight:bold;
+    }
+
+    @media screen and (max-width: 768px) {
+      .form-container {
+        width: 90%;
+        margin: 20px auto;
+      }
+
+      body {
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h2>Fraud Detector</h2>
+    <div>
+	<a class="btn btn-home" href="{{ url_for('about1') }}">Home</a>
+	<a class="btn btn-predict" href="{{ url_for('home1') }}">Predict</a>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <!-- Form -->
+  <div class="form-container">
+    <h1>Online Payments Fraud Detection</h1>
+
+    <form action="/pred" method="post">
+      <label for="step">Step</label>
+      <input type="text" id="step" name="step" placeholder="step: represents a unit of time when transaction occurred">
+
+      <label for="type">Type</label>
+      <input type="text" id="type" name="type" placeholder="type of online transaction">
+
+      <label for="amount">Amount</label>
+      <input type="text" id="amount" name="amount" placeholder="the amount of the transaction">
+
+      <label for="oldbalanceOrg">OldbalanceOrg</label>
+      <input type="text" id="oldbalanceOrg" name="oldbalanceOrg" placeholder="balance before the transaction">
+
+      <label for="newbalanceOrig">NewbalanceOrig</label>
+      <input type="text" id="newbalanceOrig" name="newbalanceOrig" placeholder="balance after the transaction">
+
+      <label for="oldbalanceDest">OldbalanceDest</label>
+      <input type="text" id="oldbalanceDest" name="oldbalanceDest" placeholder="initial balance of recipient before the transaction">
+
+      <label for="newbalanceDest">NewbalanceDest</label>
+      <input type="text" id="newbalanceDest" name="newbalanceDest" placeholder="the new balance of recipient after the transaction">
+      <br />
+    <!-- Button to go to submit.html -->
+      <div class="btnalign">
+      	<button class="predict-btn"><a href="submit.html">Predict Fraud</a></button>
+	</div>
+  </div>
+
+  <div class="footer-space"></div>
+
+</body>
+</html>
+
+

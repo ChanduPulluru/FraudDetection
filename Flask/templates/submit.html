@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+		background-image:linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("fraud.jpg");
+		background-size: 100% 100%;  /* full width and full height */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;               /* fill the viewport height */
+    background-attachment: fixed;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px;
+            
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .btn-home {
+            background-color: #5bc0de;
+        }
+
+        .btn-predict {
+            background-color: #1f4e78;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .result-box {
+            background-color: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f4e78;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+	  <a class="btn btn-home" href="{{ url_for('about1') }}">Home</a>
+	  <a class="btn btn-predict" href="{{ url_for('home1') }}">Predict</a>
+    </div>
+
+    <div class="container">
+        <div class="result-box">
+            <h1>Prediction Result</h1>
+            <p class="result">{{ prediction_text }}</p>
+        </div>
+    </div>
+
+</body>
+</html>
